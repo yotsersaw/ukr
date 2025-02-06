@@ -695,32 +695,75 @@
 		
 		<!-- START CONTACT -->
              
+      
 <section id="contact" class="section_padding">
     <div class="container">
-        <div class="section_heading text-center wow zoomIn">
-            <h2>Зв'яжіться <span>з нами</span></h2>
-            <p>Ми завжди раді відповісти на ваші запитання та допомогти з запуском вашого сайту.</p>
+    <div class="section_heading text-center wow zoomIn">
+        <h2>Зв'яжіться <span>з нами</span></h2>
+        <p>Ми завжди раді відповісти на ваші запитання та допомогти з запуском вашого сайту.</p>
 
-            <div class="section_heading_border">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div> <!-- END HEADING -->
-        <div class="contact-form-area">
-            <form id="contact-form-index" action="/api/send-message" method="POST">
-                <input type="text" name="name" placeholder="Ваше ім'я:" required>
-                <input type="email" name="email" placeholder="Ваш email:" required><br>
-                <textarea name="message" cols="30" rows="6" placeholder="Ваше повідомлення:" required></textarea><br>
-                <div class="submit-area text-center">
-                    <button type="submit" class="main_btn submit btn">Надіслати</button>
-                </div>
-            </form>
-
-            <p id="form-messages-index" class="ajax-response text-center"></p>
+        <div class="section_heading_border">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
-    </div> <!-- END CONTAINER -->
+    </div>
+
+    <div class="contact-form-area">
+        <form id="contact-form" action="/api/send-message" method="POST">  <!-- Укажите правильный путь к serverless function -->
+            <input type="text" name="name" placeholder="Ваше ім'я:" required>
+            <input type="email" name="email" placeholder="Ваш email:" required><br>
+            <textarea name="message" cols="30" rows="6" placeholder="Ваше повідомлення:" required></textarea><br>
+            <div class="submit-area text-center">
+                <button type="submit" class="main_btn submit btn">Відправити</button>
+            </div>
+        </form>
+        <p id="form-messages" class="ajax-response text-center"></p>
+    </div>
+    </div>
 </section>
+<script>
+    const form = document.getElementById('contact-form');
+    const formMessages = document.getElementById('form-messages');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+
+        try {
+            const response = await fetch('/api/send-message', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                formMessages.textContent = result.message;
+                // formMessages.classList.add('success-message');  // Если нужны стили
+                // formMessages.classList.remove('error-message');
+                form.reset();
+            } else {
+                formMessages.textContent = result.error || 'Помилка при відправці повідомлення.';
+                // formMessages.classList.add('error-message');
+                // formMessages.classList.remove('success-message');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            formMessages.textContent = 'Сталася несподівана помилка.';
+            // formMessages.classList.add('error-message');
+            // formMessages.classList.remove('success-message');
+        }
+    });
+</script>
+
+     <!-- END CONTAINER -->
+
     
 		<!-- END CONTACT -->
 		
