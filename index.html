@@ -761,7 +761,27 @@
         }
     });
 
-            <script src="js/form-handler.js"></script> <!-- Подключаем внешний JS файл -->
+            
+            const result = await response.json();
+
+            if (response.ok) {
+                formMessages.textContent = result.message;
+                // formMessages.classList.add('success-message');  // Если нужны стили
+                // formMessages.classList.remove('error-message');
+                form.reset();
+            } else {
+                formMessages.textContent = result.error || 'Помилка при відправці повідомлення.';
+                // formMessages.classList.add('error-message');
+                // formMessages.classList.remove('success-message');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            formMessages.textContent = 'Сталася несподівана помилка.';
+            // formMessages.classList.add('error-message');
+            // formMessages.classList.remove('success-message');
+        }
+    });
+</script>
 		<!-- End jQuery -->
 		
 	</body>	
