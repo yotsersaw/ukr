@@ -1,4 +1,3 @@
-﻿      
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -112,7 +111,7 @@
                         <button type="submit" class="main_btn btn">Відправити</button>
                     </div>
                 </form>
-                <div id="form-messages" class="text-center"></div>
+                <p id="form-messages" class="ajax-response text-center"></p>
             </div>
 
         </div> <!-- END CONTAINER -->
@@ -165,19 +164,22 @@
 
                 if (response.ok) {
                     formMessages.textContent = result.message;
-                    formMessages.classList.add('success-message');
-                    formMessages.classList.remove('error-message');
+                    // УДАЛИТЕ или закомментируйте добавление классов, если не хотите менять стили
+                    // formMessages.classList.add('success-message');
+                    // formMessages.classList.remove('error-message');
                     form.reset();
                 } else {
                     formMessages.textContent = result.error || 'Помилка при відправці повідомлення.';
-                    formMessages.classList.add('error-message');
-                    formMessages.classList.remove('success-message');
+                    // УДАЛИТЕ или закомментируйте добавление классов, если не хотите менять стили
+                    // formMessages.classList.add('error-message');
+                    // formMessages.classList.remove('success-message');
                 }
             } catch (error) {
                 console.error('Error:', error);
                 formMessages.textContent = 'Сталася несподівана помилка.';
-                formMessages.classList.add('error-message');
-                formMessages.classList.remove('success-message');
+                // УДАЛИТЕ или закомментируйте добавление классов, если не хотите менять стили
+                // formMessages.classList.add('error-message');
+                // formMessages.classList.remove('success-message');
             }
         });
     </script>
@@ -185,5 +187,3 @@
 
 </body>
 </html>
-
-    
