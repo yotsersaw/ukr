@@ -694,39 +694,52 @@
 		<!-- END BLOG -->
 		
 		<!-- START CONTACT -->
-			<section id="contact" class="section_padding">				
-				<div class="container">
-					<div class="section_heading text-center wow zoomIn">
-						<h2>Контакти</h2>
-						<p>Зв'яжіться з нами, щоб дізнатися більше про наші послуги.</p>	
-					
-						<div class="section_heading_border">
-							<span></span>
-							<span></span>
-							<span></span>
-						</div>
-					</div> <!-- END HEADING -->
-					<div class="contact-form-area">
-						<form id="contact-form" action="submit.php" method="POST">
-							<input type="text" name="name" placeholder="Ваше ім'я:" required>
-							<input type="email" name="email" placeholder="Ваш email:" required><br>
-							<textarea name="message" cols="30" rows="6" placeholder="Ваше повідомлення:" required></textarea><br>
-							<div class="submit-area text-center">
-								<button type="submit" class="main_btn submit btn">Надіслати</button>
-							</div>
-						</form>
+        <section id="contact" class="section_padding">
+            <div class="container">
+                <div class="section_heading text-center wow zoomIn">
+                    <h2>Зв'яжіться <span>з нами</span></h2>
+                    <p>Ми завжди раді відповісти на ваші запитання та допомогти з запуском вашого сайту.</p>
 
-						<p class="ajax-response text-center"></p>
+                    <div class="section_heading_border">
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </div>
-				</div> <!-- END CONTAINER -->
-			</section>
+                </div> <!-- END HEADING -->
+
+                <div class="contact-form-area">
+                    <form id="contact-form-index" action="/api/send-message" method="POST">
+                        <div class="row">
+                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                <input type="text" name="name" id="name" class="form-control" placeholder="Ваше ім'я:" required>
+                            </div>
+                            <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Ваш email:" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                                <textarea name="message" id="message" class="form-control" cols="30" rows="6" placeholder="Ваше повідомлення:" required></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="submit-area text-center col-md-12">
+                                <button type="submit" class="main_btn submit btn">Надіслати</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <p id="form-messages-index" class="ajax-response text-center"></p>
+                </div>
+            </div> <!-- END CONTAINER -->
+        </section>
 		<!-- END CONTACT -->
 		
 		<!-- START COPYRIGHT -->
 			<section class="copyright_area">
 				<div class="copyright text-center">
 					<div class="copy_text">
-						<p>Copyright © 2025 | Всі права захищені</p>
+						<p>Copyright © 2024 | Всі права захищені</p>
 					</div>
 				</div>
 			</section>
@@ -745,7 +758,8 @@
 			<script src="js/scrolltopcontrol.js"></script>
 			<script src="js/wow.min.js"></script>
 			<script src="js/main.js"></script>
+            <script src="js/form-handler.js"></script> <!-- Подключаем внешний JS файл -->
 		<!-- End jQuery -->
 		
-    </body>
+	</body>	
 </html>
