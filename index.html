@@ -760,28 +760,37 @@
             // formMessages.classList.remove('success-message');
         }
     });
-
-            
-            const result = await response.json();
-
-            if (response.ok) {
-                formMessages.textContent = result.message;
-                // formMessages.classList.add('success-message');  // Если нужны стили
-                // formMessages.classList.remove('error-message');
-                form.reset();
-            } else {
-                formMessages.textContent = result.error || 'Помилка при відправці повідомлення.';
-                // formMessages.classList.add('error-message');
-                // formMessages.classList.remove('success-message');
-            }
-        } catch (error) {
-            console.error('Error:', error);
-            formMessages.textContent = 'Сталася несподівана помилка.';
-            // formMessages.classList.add('error-message');
-            // formMessages.classList.remove('success-message');
-        }
-    });
 </script>
+
+     <!-- END CONTAINER -->
+
+    
+		<!-- END CONTACT -->
+		
+		<!-- START COPYRIGHT -->
+			<section class="copyright_area">
+				<div class="copyright text-center">
+					<div class="copy_text">
+						<p>Copyright © 2024 | Всі права захищені</p>
+					</div>
+				</div>
+			</section>
+		<!-- END COPYRIGHT -->
+		
+		<!-- Start jQuery -->
+			<script src="js/jquery.js"></script>
+			<script src="js/bootstrap.min.js"></script>	
+			<script src="js/jquery.easing.1.3.min.js"></script>			
+			<script src="js/modernizr-2.8.3.min.js"></script>	
+			<script src="js/jquery.stellar.min.js"></script>
+			<script src="js/isotope.pkgd.min.js"></script>
+			<script src="js/owl.carousel.min.js"></script>
+			<script src="js/lightbox.min.js"></script>
+			<script src="js/jquery.inview.min.js"></script>
+			<script src="js/scrolltopcontrol.js"></script>
+			<script src="js/wow.min.js"></script>
+			<script src="js/main.js"></script>
+            <script src="js/form-handler.js"></script> <!-- Подключаем внешний JS файл -->
 		<!-- End jQuery -->
 		
 	</body>	
