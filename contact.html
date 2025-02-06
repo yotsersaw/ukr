@@ -1,3 +1,4 @@
+      
 <!DOCTYPE html>
 <html lang="uk">
 <head>
@@ -94,21 +95,21 @@
                 <form id="contact-form" action="/api/send-message" method="POST">
                     <div class="row">
                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="name" id="name" class="form-control" placeholder="Ваше ім'я"
-                                   required>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Ваше ім'я:" required>
                         </div>
                         <div class="form-group col-md-6 col-sm-6 col-xs-12">
-                            <input type="email" name="email" id="email" class="form-control" placeholder="Ваш Email"
-                                   required>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Ваш email:" required>
                         </div>
                     </div>
-                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
-                        <textarea name="message" id="message" class="form-control" rows="5" placeholder="Повідомлення"
-                                  required></textarea>
+                    <div class="row">
+                        <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                            <textarea name="message" id="message" class="form-control" cols="30" rows="6" placeholder="Ваше повідомлення:" required></textarea>
+                        </div>
                     </div>
-
-                    <div class="form-group col-md-12 col-sm-12 col-xs-12 text-center">
-                        <button type="submit" class="main_btn btn">Відправити</button>
+                    <div class="row">
+                        <div class="submit-area text-center col-md-12">
+                            <button type="submit" class="main_btn submit btn">Відправити</button>
+                        </div>
                     </div>
                 </form>
                 <p id="form-messages" class="ajax-response text-center"></p>
@@ -164,20 +165,17 @@
 
                 if (response.ok) {
                     formMessages.textContent = result.message;
-                    // УДАЛИТЕ или закомментируйте добавление классов, если не хотите менять стили
-                    // formMessages.classList.add('success-message');
+                    // formMessages.classList.add('success-message');  // Если нужны стили
                     // formMessages.classList.remove('error-message');
                     form.reset();
                 } else {
                     formMessages.textContent = result.error || 'Помилка при відправці повідомлення.';
-                    // УДАЛИТЕ или закомментируйте добавление классов, если не хотите менять стили
                     // formMessages.classList.add('error-message');
                     // formMessages.classList.remove('success-message');
                 }
             } catch (error) {
                 console.error('Error:', error);
                 formMessages.textContent = 'Сталася несподівана помилка.';
-                // УДАЛИТЕ или закомментируйте добавление классов, если не хотите менять стили
                 // formMessages.classList.add('error-message');
                 // formMessages.classList.remove('success-message');
             }
@@ -187,3 +185,5 @@
 
 </body>
 </html>
+
+    
